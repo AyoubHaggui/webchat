@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
     public ngOnInit(): void {
         const directLine = window.WebChat.createDirectLine({
-            secret: "<YourSecretHere>",
+            secret: "wDHNjKX0RnE.MF1gQlSKI3GqCQK9pterbNLMAvSxH9BX9S95rQK-mVw",
             webSocket: false
         });
 
