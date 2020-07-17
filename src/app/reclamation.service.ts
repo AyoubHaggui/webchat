@@ -53,7 +53,7 @@ export class ReclamationService {
     }
   ])
   GetReclamation(){
-    this.http.get('http://localhost:3978/api/reclamation').subscribe((res:any) => {
+    this.http.get('http://cmrpoc.azurewebsites.net/api/reclamation').subscribe((res:any) => {
       this.reclamationSubject.next(res);
     })  
   }

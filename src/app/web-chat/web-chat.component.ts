@@ -28,14 +28,14 @@ export class WebChatComponent implements OnInit {
             window.WebChat.renderWebChat(
                 {
                     directLine: directLine,
-                    userID: "USER_ID",
+                    userID: this.UserId,
                 },
                 this.botWindowElement.nativeElement
             );
 
             directLine
                 .postActivity({
-                    from: { id: "USER_ID", name: "USER_NAME" },
+                    from: { id: this.UserId, name: "USER_NAME" },
                     name: "requestWelcomeDialog",
                     type: "event",
                     value: "token",

@@ -1,5 +1,6 @@
 <div class="module-content"><img
-        src="https://seeklogo.com/images/C/caisse-marocaine-des-retraites-logo-439DBA0A0D-seeklogo.com.png" alt="">
+        src="https://seeklogo.com/images/C/caisse-marocaine-des-retraites-logo-439DBA0A0D-seeklogo.com.png" alt=""
+        style="margin-top: 10rem;">
     <div class="limiter">
         <div class="container-table100">
             <div class="wrap-table100">
@@ -21,11 +22,18 @@
                     <div class="table100-body js-pscroll">
                         <table>
                             <tbody>
-                                <tr *ngFor="let rec of reclamation$ | async" class="row100 body">
-                                    <td class="cell100 column1">{{rec.fullName}}</td>
-                                    <td class="cell100 column1">{{rec.message}}</td>
+                                <ng-container *ngIf="reclamation$ | async as reclamations; else emptyTableTemplate">
+                                    <tr *ngFor="let rec of reclamations" class="row100 body">
+                                        <td class="cell100 column1">{{rec.fullName}}</td>
+                                        <td class="cell100 column1">{{rec.message}}</td>
 
-                                </tr>
+                                    </tr>
+                                </ng-container>
+                                <ng-template #emptyTableTemplate>
+                                    <tr rowspan="2">
+                                        <span class="empty">il n'y pas des reclamations pour le moment, veuillez consulter plus tard...</span>
+                                    </tr>
+                                </ng-template>
                             </tbody>
                         </table>
                     </div>
