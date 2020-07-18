@@ -6,6 +6,16 @@
     overflow: hidden;
 }
 
+.action-button {
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    border-radius: 10px;
+    background-color: #1c5517;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+}
 .flex {
     display: flex;
     height: 100%;
@@ -15,6 +25,7 @@
     flex: 3;
     background-color: #f2f2f2;
     padding: 1rem;
+    position: relative;
 }
 
 .webchat-container {
