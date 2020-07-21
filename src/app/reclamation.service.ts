@@ -6,55 +6,23 @@ import { BehaviorSubject,of } from 'rxjs';
   providedIn: 'root'
 })
 export class ReclamationService {
+  GetUsers() {
+    this.http.get('http://botcmr.azurewebsites.net/api/users').subscribe((res:any) => {
+      this.userSubject.next(res);
+    }) 
+  }
 
   reclamationSubject = new BehaviorSubject<any[]>([]);
   reclamationObs = this.reclamationSubject.asObservable();
+  userSubject = new BehaviorSubject<any[]>([]);
+  userObs = this.userSubject.asObservable();
+
   constructor(private http:HttpClient) { }
-  reclamation = of([
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    }
-  ])
+
   GetReclamation(){
     this.http.get('http://botcmr.azurewebsites.net/api/reclamation').subscribe((res:any) => {
       this.reclamationSubject.next(res);
     })  
   }
+  Get
 }
