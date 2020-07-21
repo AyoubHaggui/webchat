@@ -1,0 +1,46 @@
+<div class="module-content"><img
+    src="https://seeklogo.com/images/C/caisse-marocaine-des-retraites-logo-439DBA0A0D-seeklogo.com.png" alt=""
+    style="margin-top: 10rem;">
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                            <tr class="row100 head">
+                                <th class="cell100 column1">
+                                    Nom et Prenom
+                                </th>
+                                <th class="cell100 column1">
+                                    Message
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+                            <ng-container *ngIf="users$ | async as users; else emptyTableTemplate">
+                                <tr *ngFor="let user of users" class="row100 body">
+                                    <td class="cell100 column1">{{user.fullName}}</td>
+                                    <td class="cell100 column1">{{user.numAFF}}</td>
+                                    <td class="cell100 column1"><div class="action-button"><a  [attr.href]="'http://cmrwebchat.azurewebsites.net/?userid=' + user.numAFF">Simuler</a></div></td>
+
+                                </tr>
+                            </ng-container>
+                            <ng-template #emptyTableTemplate>
+                                <tr rowspan="2">
+                                    <span class="empty">il n'y pas des utulisateurs pour le moment, veuillez consulter plus tard...</span>
+                                </tr>
+                            </ng-template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

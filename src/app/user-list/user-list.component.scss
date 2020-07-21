@@ -1,0 +1,14 @@
+.module-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .action-button{
+        display: grid;
+        place-items: center;
+
+    }
+}
+
+
+

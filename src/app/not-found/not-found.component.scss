@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f2f2f2;
+    background-color: #f8f9fa;
     height: 100%;
     width: 100%;
 }
@@ -16,15 +16,24 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    .action-button {
+    .actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
         position: absolute;
+
         right: 2rem;
         top: 1rem;
-        border-radius: 10px;
-        background-color: #1c5517;
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
+        .action-button {
+
+            border: 1px solid #9c9797;
+            border-radius: 6px;
+            //background-color: #fff;
+            color: #9c9797;
+            padding: 10px 20px;
+            text-decoration: none;
+            margin: 0.5rem 1rem;
+        }
     }
 }

@@ -8,53 +8,19 @@ import { BehaviorSubject,of } from 'rxjs';
 export class ReclamationService {
 
   reclamationSubject = new BehaviorSubject<any[]>([]);
+  usersSubject = new BehaviorSubject<any[]>([]);
   reclamationObs = this.reclamationSubject.asObservable();
+  userObs = this.usersSubject.asObservable();
   constructor(private http:HttpClient) { }
-  reclamation = of([
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    },
-    {
-      fullName:"morched marzouk",
-      message:"Par la présente, je viens vous adresser ma réclamation concernant (précisez l'objet de votre réclamation)."
-    }
-  ])
+  
   GetReclamation(){
-    this.http.get('http://cmrpoc.azurewebsites.net/api/reclamation').subscribe((res:any) => {
+    this.http.get<any[]>('http://botcmr.azurewebsites.net/api/reclamation').subscribe((res:any[]) => {
       this.reclamationSubject.next(res);
     })  
+  }
+  GetUsers(){
+    this.http.get<any[]>('http://botcmr.azurewebsites.net/api/users').subscribe((res:any[]) => {
+      this.usersSubject.next(res);
+    })
   }
 }
